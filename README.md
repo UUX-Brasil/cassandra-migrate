@@ -14,7 +14,7 @@ Cassandra-migrate is a incremental migration tool for Cassandra.
 Install [node.js](http://nodejs.org/) and [cassandra](http://cassandra.apache.org/) and [cassandra-driver](https://www.npmjs.com/package/cassandra-driver). Then:
 
 ```
-npm install git+https://github.com/UUX-Brasil/itaas-nodejs-tools.git#v1.0.0
+npm install --save git+https://github.com/UUX-Brasil/cassandra-migrate.git#v1.0.0
 ```
 
 ## Overview
