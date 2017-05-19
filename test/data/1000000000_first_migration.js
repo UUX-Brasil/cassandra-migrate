@@ -33,14 +33,6 @@ const migration = {
       .catch((err)=>{
         handler(err, false);
       });
-
-    db.client.execute(query, params, { prepare: true }, function (err) {
-      if (err) {
-        handler(err, false);
-      } else {
-        handler(false, true);
-      }
-    });
   }
 };
 
