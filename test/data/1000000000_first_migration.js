@@ -34,7 +34,7 @@ const migration = {
         handler(err, false);
       });
 
-    db.execute(query, params, { prepare: true }, function (err) {
+    db.client.execute(query, params, { prepare: true }, function (err) {
       if (err) {
         handler(err, false);
       } else {

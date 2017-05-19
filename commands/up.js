@@ -60,7 +60,7 @@ class Up {
       let db = this.db;
       delete query.run;
       query.created_at = Date.now();
-      db.execute(migration_settings.insertMigration, query, { prepare: true }, function (err) {
+      db.client.execute(migration_settings.insertMigration, query, { prepare: true }, function (err) {
         if (err) {
           reject(`Failed to write migration to Migrations Table: ${query.title}: ${err}`);
         } else {
