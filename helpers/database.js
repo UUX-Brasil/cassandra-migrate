@@ -1,10 +1,10 @@
 'use strict';
 
-const cassandra = require('cassandra-driver');
+const cassandra = require('itaas-nodejs-tools').cassandra;
 
 class Database {
   constructor() {
-    this.driverOptions = {
+    this.clientOptions = {
       contactPoints: (process.env.DBHOST || 'localhost').split(','),
       keyspace: process.env.DBKEYSPACE
     };
@@ -13,10 +13,11 @@ class Database {
     let password = process.env.DBPASSWORD;
 
     if (username && password) {
-      this.driverOptions.authProvider = new cassandra.auth.PlainTextAuthProvider(username, password);
+      this.clientOptions.cassandraUser = username;
+      this.clientOptions.cassandraPassword = password;
     }
 
-    let client = new cassandra.Client(this.driverOptions);
+    let client = new cassandra.client(this.clientOptions);
 
     return client;
   }

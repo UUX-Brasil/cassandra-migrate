@@ -57,7 +57,7 @@ class down {
       delete query.run;
       delete query.migration_number;
       delete query.title;
-      db.execute(migration_settings.deleteMigration, query, { prepare: true }, function (err) {
+      db.client.execute(migration_settings.deleteMigration, query, { prepare: true }, function (err) {
         if (err) {
           reject(err);
         } else {

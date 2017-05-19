@@ -11,7 +11,8 @@ class Common {
 
   createMigrationTable() {
     return new Promise((resolve, reject) => {
-      this.db.execute(migration_settings.createMigrationTable, null, { prepare: true }, function (err, response) {
+      this.db.client.execute(migration_settings.createMigrationTable, null, { prepare: true }, 
+      function (err, response) {
         if (err) {
           reject(err);
         }
@@ -24,7 +25,8 @@ class Common {
     return new Promise((resolve, reject) => {
       this.filesRan = {};
       let self = this;
-      this.db.execute(migration_settings.getMigration, null, { prepare: true }, function (err, alreadyRanFiles) {
+      this.db.client.execute(migration_settings.getMigration, null, { prepare: true }, 
+      function (err, alreadyRanFiles) {
         if (err) {
           reject(err);
         } else {
