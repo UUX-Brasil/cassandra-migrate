@@ -1,7 +1,7 @@
 'use strict';
 
-const cassandra = require('cassandra-driver');
 const tools = require('itaas-nodejs-tools');
+const cassandra = tools.cassandra;
 const context = require('./context-factory')();
 const queries = require('./queries');
 
@@ -14,18 +14,18 @@ function getTestDriverOptions() {
   return driverOptions;
 }
 
-function createClient (driverOptions){
-  let client = new cassandra.Client(driverOptions);
+function createClient (clientOptions){
+  let client = new cassandra.client(clientOptions);
   return client;
 }
 
 function setupDatabase()
 {
-  let driverOptions = {
+  let clientOptions = {
     contactPoints: (process.env.DBHOST || 'localhost').split(',')
   };
   
-  let client = createClient(driverOptions);
+  let client = createClient(clientOptions);
 
   return tools.cassandra.cql.executeNonQuery(context, client, queries.dropKeySpace)
     .then(()=>{

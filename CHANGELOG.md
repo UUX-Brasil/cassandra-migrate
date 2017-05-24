@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+## v1.0.2
+- [2017-05-19] *patch* [TM-4322](https://jiralabone.atlassian.net/browse/TM-4322) **Update tools.cassandra in cassandra.migrate**
+
 ## v1.0.1
 - [2017-01-24] *patch* [TM-4000](https://jiralabone.atlassian.net/browse/TM-4000) **Update to Node.js 6**
 
